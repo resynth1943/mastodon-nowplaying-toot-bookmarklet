@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-		<title>Mastodon Toot Bookmarklet</title>
+		<title>Mastodon #nowplaying Toot Bookmarklet</title>
 
 		<style>
 			html, body {
@@ -80,8 +80,8 @@
 <body onload="generateLink()">
 	
 	<header>
-		<h1>Mastodon Toot Bookmarklet</h1>
-		<h2>Toot the page you're currently on</h2>
+		<h1>Mastodon #nowplaying Toot Bookmarklet</h1>
+		<h2>Toot the music you're currently listening to.</h2>
 	</header>
 
 	<div class="content">
@@ -111,7 +111,7 @@
 	<script>
 		generateLink = function() {
 			var instance = document.getElementById('instance').value;
-			var href = `javascript:window.open('https://${instance}/share?text='+encodeURIComponent(document.title)+' '+encodeURIComponent(window.location.href)+encodeURIComponent(window.getSelection().toString() ? '\n\n': '')+encodeURIComponent(window.getSelection().toString()), '_blank','width=600,height=600,toolbar=no')`;
+			var href = `javascript:window.open('https://${instance}/share?text='+encodeURIComponent(document.title.replace('- YouTube', '')+'\n\n')	+encodeURIComponent(window.location.href)+encodeURIComponent(' #nowplaying')+encodeURIComponent(window.getSelection().toString() ? '\n\n': '')+encodeURIComponent(window.getSelection().toString()), '_blank','width=600,height=600,toolbar=no')`;
 
 			document.getElementById('link').href = href;
 			document.getElementById('input').innerHTML = href;
